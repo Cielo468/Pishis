@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suscripciones Pinshi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Slackey&family=Sedgwick+Ave&family=Peralta&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at center, #DFD584, #CF3F1C);
+      color: #121010;
+      overflow-x: hidden;
+    }
+    section.suscripcion {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Slackey';
+      font-size: 84px;
+      margin-bottom: 40px;
+      color: white;
+    }
+    .planes {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .plan {
+      background: linear-gradient(180deg, #E7D074 0%, #DC6001 100%);
+      padding: 30px;
+      width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 9px 4px rgba(0,0,0,0.25);
+      transition: transform 0.3s;
+    }
+    .plan:hover {
+      transform: translateY(-10px);
+    }
+    .plan h2 {
+      font-family: 'Slackey';
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .plan p.precio {
+      font-family: 'Sedgwick Ave';
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .plan ul {
+      text-align: left;
+      font-size: 19px;
+      list-style: none;
+      padding: 0;
+    }
+    .plan ul li {
+      margin-bottom: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 28px;
+      background: #121010;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #333;
+    }
+    .beneficios {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .beneficios h3 {
+      font-family: 'Peralta';
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .beneficios p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 400px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 200px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .submit-btn {
+      background: #DC6001;
+      color: white;
+    }
+    /* Barra de progreso */
+    .progress-bar {
+      width: 100%;
+      background: #eee;
+      height: 10px;
+      border-radius: 5px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: #DC6001;
+      transition: width 0.5s ease;
+    }
+    /* Confirmación */
+    .success-message {
+      display: none;
+      text-align: center;
+      font-size: 24px;
+      color: green;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="suscripcion">
+  <h1>Suscripción</h1>
+  <div class="planes">
+    <div class="plan" data-aos="fade-up">
+      <h2>El Degustador Curioso</h2>
+      <p class="precio">$150 MXN al mes</p>
+      <ul>
+        <li>1 botella estándar (150 ml)</li>
+        <li>1 muestra sorpresa (50 ml)</li>
+        <li>1 pegatina "Pinshi"</li>
+      </ul>
+      <button onclick="openModal('El Degustador Curioso')">Suscribirme</button>
+    </div>
+    <div class="plan" data-aos="fade-up" data-aos-delay="100">
+      <h2>El Amante del Picante</h2>
+      <p class="precio">$280 MXN al mes</p>
+      <ul>
+        <li>2 botellas estándar (150 ml)</li>
+        <li>1 botella pequeña especial (100 ml)</li>
+        <li>Acceso anticipado a nuevos sabores</li>
+        <li>20% de descuento en compras</li>
+      </ul>
+      <button onclick="openModal('El Amante del Picante')">Suscribirme</button>
+    </div>
+    <div class="plan" data-aos="fade-up" data-aos-delay="200">
+      <h2>El Fanático Pinshi</h2>
+      <p class="precio">$750 MXN por trimestre</p>
+      <ul>
+        <li>3 botellas estándar (150 ml)</li>
+        <li>2 botellas pequeñas especiales (100 ml)</li>
+        <li>Merch exclusivo</li>
+        <li>Envío gratis trimestral</li>
+      </ul>
+      <button onclick="openModal('El Fanático Pinshi')">Suscribirme</button>
+    </div>
+  </div>
+
+  <div class="beneficios">
+    <h3>Beneficios de la Suscripción</h3>
+    <p><strong>Descubrimiento:</strong> Prueba nuevos sabores y combinaciones.</p>
+    <p><strong>Exclusividad:</strong> Accede a productos únicos para suscriptores.</p>
+    <p><strong>Comodidad:</strong> Recibe tu Pinshi directo en tu puerta.</p>
+    <p><strong>Ahorro:</strong> Mejores precios que comprando individual.</p>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="planSeleccionado">Suscribirte a</h2>
+
+    <div class="progress-bar">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+
+    <form id="formulario">
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="text" placeholder="Dirección de envío" required>
+      <select required>
+        <option value="">Método de pago</option>
+        <option>Tarjeta de Crédito</option>
+        <option>Tarjeta de Débito</option>
+        <option>Paypal</option>
+      </select>
+      <button type="submit" class="submit-btn">Confirmar Suscripción</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      ¡Suscripción completada! 🎉
+    </div>
+  </div>
+</div>
+
+<!-- librería de confeti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  function openModal(plan) {
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('planSeleccionado').innerText = 'Suscribirte a ' + plan;
+    document.getElementById('progressFill').style.width = '0%'; // Reset progreso
+    document.getElementById('successMessage').style.display = 'none';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  document.getElementById('formulario').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Simular pasos de progreso
+    let progress = 0;
+    const interval = setInterval(() => {
+      if (progress >= 100) {
+        clearInterval(interval);
+        document.getElementById('formulario').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+        // Lluvia de confeti
+        confetti();
+      } else {
+        progress += 20;
+        document.getElementById('progressFill').style.width = progress + '%';
+      }
+    }, 300);
+  });
+</script>
+
+</body>
+</html>
