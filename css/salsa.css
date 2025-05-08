@@ -1,0 +1,418 @@
+/*documento css*/
+/* Elimina márgenes y paddings predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Asegura que el body no desborde */
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* oculta desbordamientos horizontales */
+  }
+  
+
+.contenedor { 
+    width: 400px;
+    overflow: hidden;
+ 
+  }
+
+  .contenedor img {
+    width: 100%;
+    transition: transform 0.5s ease;
+  }
+
+  .contenedor:hover img {
+    transform: scale(1.2); /* Zoom de 120% */
+  }
+
+  .contenedor1 {
+    overflow: hidden;
+ 
+  }
+  
+ .contenedor1 img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+    transform-origin: center center;
+  }
+  
+  /* Zoom solo en ceviche al pasar el mouse */
+  .contenedor1:hover img {
+    transform: scale(1.2); /* Zoom de 120% */  }
+  
+  /* Opcional: también puedes hacer zoom en atún */
+  .contenedor1:hover img {
+    transform: scale(1.2); /* Zoom de 120% */
+  }
+  a {
+    text-decoration: none; /* Quita la línea */
+    color: inherit; /* Hereda el color del texto padre */
+    font-family: inherit; /* Mantiene la misma tipografía */
+  }
+
+  .cabecera2 {
+    background: linear-gradient(-15deg, #E6DB83 0%, #DF3E34 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+  
+  .imagen-con-overlay {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .imagen-con-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* 0.4 = 40% oscuridad */
+    pointer-events: none;
+  }
+ 
+
+  .contenedor1 {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .imagen-zoom {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%); /* baja el brillo */
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+  .contenedor1:hover .imagen-zoom {
+    transform: scale(1.1); /* zoom al pasar el mouse */
+    filter: brightness(80%);
+  }
+  body {margin:0px;
+           
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle at center, #DFD584, #CF3F1C);
+    color: #121010;
+    overflow-x: hidden;
+  }
+  section.suscripcion {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  h1 {
+    font-family: 'Slackey';
+    font-size: 84px;
+    margin-bottom: 40px;
+    color: white;
+  }
+  .planes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .plan {
+    background: linear-gradient(180deg, #E7D074 0%, #DC6001 100%);
+    padding: 30px;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 9px 4px rgba(0,0,0,0.25);
+    transition: transform 0.3s;
+  }
+  .plan:hover {
+    transform: translateY(-10px);
+  }
+  .plan h2 {
+    font-family: 'Slackey';
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .plan p.precio {
+    font-family: 'Sedgwick Ave';
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .plan ul {
+    text-align: left;
+    font-size: 19px;
+    list-style: none;
+    padding: 0;
+  }
+  .plan ul li {
+    margin-bottom: 10px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 28px;
+    background: #121010;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #333;
+  }
+  .beneficios {
+    margin-top: 50px;
+    text-align: center;
+  }
+  .beneficios h3 {
+    font-family: 'Peralta';
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .beneficios p {
+    font-size: 20px;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  /* Modal */
+  .modal {
+    
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 400px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+  .modal-content h2 {
+    margin-top: 0;
+  }
+  .close {
+   
+    top: 10px;
+    right: 200px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  .submit-btn {
+    background: #DC6001;
+    color: white;
+  }
+  /* Barra de progreso */
+  .progress-bar {
+    width: 100%;
+    background: #eee;
+    height: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #DC6001;
+    transition: width 0.5s ease;
+  }
+  /* Confirmación */
+  .success-message {
+    display: none;
+    text-align: center;
+    font-size: 24px;
+    color: green;
+    margin-top: 20px;
+  }
+
+
+
+.texto-hover {
+  font-size: 32px;
+  font-weight: bold;
+  color: #121010;
+  transition: color 0.4s ease;
+  cursor: pointer;
+}
+
+.texto-hover:hover {
+  color: #0a0502; /* Naranja Pinshi */
+}
+.texto-hover:hover {
+  color: #070402;
+  text-shadow: 0 0 10px #000000, 0 0 20px #b90f00;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(circle at center, #DFD584, #CF3F1C);
+  color: #121010;
+  overflow-x: hidden;
+}
+section.suscripcion {
+  padding: 50px 20px;
+  text-align: center;
+}
+h1 {
+  font-family: 'Slackey';
+  font-size: 84px;
+  margin-bottom: 40px;
+  color: white;
+}
+.planes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.plan {
+  background: linear-gradient(180deg, #E7D074 0%, #DC6001 100%);
+  padding: 30px;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 9px 4px rgba(0,0,0,0.25);
+  transition: transform 0.3s;
+}
+.plan:hover {
+  transform: translateY(-10px);
+}
+.plan h2 {
+  font-family: 'Slackey';
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+.plan p.precio {
+  font-family: 'Sedgwick Ave';
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.plan ul {
+  text-align: left;
+  font-size: 19px;
+  list-style: none;
+  padding: 0;
+}
+.plan ul li {
+  margin-bottom: 10px;
+}
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 28px;
+  background: #121010;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #333;
+}
+.beneficios {
+  margin-top: 50px;
+  text-align: center;
+}
+.beneficios h3 {
+  font-family: 'Peralta';
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.beneficios p {
+  font-size: 20px;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.modal-content h2 {
+  margin-top: 0;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 200px;
+  font-size: 24px;
+  cursor: pointer;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.submit-btn {
+  background: #DC6001;
+  color: white;
+}
+/* Barra de progreso */
+.progress-bar {
+  width: 100%;
+  background: #eee;
+  height: 10px;
+  border-radius: 5px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: #DC6001;
+  transition: width 0.5s ease;
+}
+/* Confirmación */
+.success-message {
+  display: none;
+  text-align: center;
+  font-size: 24px;
+  color: green;
+  margin-top: 20px;
+}
+
+
+
+
+  
+  
+  
+  
