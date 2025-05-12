@@ -18,7 +18,6 @@
     width: 400px;
     overflow: hidden;
  
-  }
 
   .contenedor img {
     width: 100%;
@@ -114,6 +113,10 @@
     margin-bottom: 40px;
     color: white;
   }
+.punto {
+        font-size: 8px;
+
+}
   .planes {
     display: flex;
     justify-content: center;
